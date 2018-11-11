@@ -16,9 +16,11 @@
   </div>
   <div class="login-page">
     <div class="form">
-      <input type="text" placeholder="Username" id="username" />
-      <input type="text" placeholder="Password" id="password" />
-      <button >Submit</button>
+      <form action="/login" method="post">
+        <input type="text" placeholder="Username" id="username" name="username" />
+        <input type="text" placeholder="Password" id="password" name="password" />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 
