@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 .login-page {
   width: 360px;
@@ -51,7 +52,7 @@ select,.form input {
   font-weight: bold;
 }
 .form .message a {
-  color: rgb(183, 190, 183);
+  color: black;
   text-decoration: none;
 }
 .form .register-form {
@@ -166,7 +167,7 @@ button:active:after {
 
 .home a {
   font-size: 24px;
-  text-decoration: none;
+  ;text-decoration: none;
   color: black;
 }
 
@@ -182,8 +183,20 @@ button:active:after {
 
 .navbar-brand{
   font-family: 'StarWars';
+  font-size: 25px;
+}
+
+.nav-item{
+  font-family: 'Oswald';
+  font-size: 25px;
 }
 
 .card{
   margin-top: 65px;
+}
+
+
+.landing-text{
+  font-family:StarWars;
+  color: antiquewhite;
 }
