@@ -19,8 +19,11 @@ router.post('/login', (req,res,next) => {
   user.once("value").then((snap) => {
     if(snap.val().password == password){
       console.log("Successfully logged in")
-      req.session.user = username;
-      //console.log("hello"+req.session.user)  
+      userinfo = {
+        uname:username
+      }
+      req.session.user = userinfo;
+      console.log("hello "+req.session.user.uname)  
       res.redirect("/")
     }
     else{
@@ -33,17 +36,24 @@ router.post('/login', (req,res,next) => {
     res.redirect("/")
    
   })
-}) 
+}
 
+) 
 router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
 
   cid = req.params.cid;
   //console.log(cid);
   var challenge = db.ref('Challenges/'+cid)
   challenge.on("value",function(snapshot){
-    console.log(snapshot.val().done);
+    console.log(snapshot.val());
     if(snapshot.val().done == 0){
-      res.render("question")
+      level={
+        username:req.session.user.uname,
+        question:snapshot.val().question,
+        cid:cid
+      }
+      console.log(level);
+      res.render("question",{ level:level })
     }
     else{
       res.render("completed")
@@ -51,10 +61,9 @@ router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
   },function(err){
     console.log("Error: "+err);
   })
-  //res.send("qwerty")
+
 
 })
-
 
 router.get('/logout', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
