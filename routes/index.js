@@ -8,6 +8,8 @@ var db = admin.database()
 /* GET home page. */
 router.get('/', auth.sessionChecker, function(req, res, next) {
   res.render("dashboard")
+  console.log(req.session.user)
+    
 });
 
 router.post('/login', (req,res,next) => {
@@ -18,6 +20,7 @@ router.post('/login', (req,res,next) => {
     if(snap.val().password == password){
       console.log("Successfully logged in")
       req.session.user = username;
+      //console.log("hello"+req.session.user)  
       res.redirect("/")
     }
     else{
@@ -32,6 +35,27 @@ router.post('/login', (req,res,next) => {
   })
 }) 
 
+router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
+
+  cid = req.params.cid;
+  //console.log(cid);
+  var challenge = db.ref('Challenges/'+cid)
+  challenge.on("value",function(snapshot){
+    console.log(snapshot.val().done);
+    if(snapshot.val().done == 0){
+      res.render("question")
+    }
+    else{
+      res.render("completed")
+    }
+  },function(err){
+    console.log("Error: "+err);
+  })
+  //res.send("qwerty")
+
+})
+
+
 router.get('/logout', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
       res.clearCookie('user_sid');
@@ -41,5 +65,7 @@ router.get('/logout', (req, res) => {
       res.redirect('/');
   }
 });
+
+
 
 module.exports = router;
