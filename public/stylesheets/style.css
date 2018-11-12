@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 .login-page {
   width: 360px;
@@ -16,21 +17,22 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 select,.form input {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto';
   outline: 0;
-  background: #f2f2f2;
+  background: #ffffff;
   width: 100%;
-  border: 0;
+/*   border: 50px;
+ */  border-color: #000000;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto';
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: rgb(93, 95, 93);
   width: 100%;
   border: 0;
   padding: 15px;
@@ -41,15 +43,16 @@ select,.form input {
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: rgb(31, 32, 31);
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #222020;
   font-size: 12px;
+  font-weight: bold;
 }
 .form .message a {
-  color: #4CAF50;
+  color: black;
   text-decoration: none;
 }
 .form .register-form {
@@ -89,14 +92,24 @@ select,.form input {
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+/*   background: #122112; 
+  background: -webkit-linear-gradient(right, #121212, rgb(59, 61, 57));
+  background: -moz-linear-gradient(right, #121212, rgb(68, 70, 67));
+  background: -o-linear-gradient(right, #484b46, rgb(91, 93, 90));
+  background: linear-gradient(to left, #50524f, rgb(63, 66, 61));
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;  */ 
+  background: rgba(76,76,76,1);
+background: -moz-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(76,76,76,1)), color-stop(3%, rgba(89,89,89,1)), color-stop(6%, rgba(102,102,102,1)), color-stop(15%, rgba(71,71,71,1)), color-stop(26%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(75%, rgba(17,17,17,1)), color-stop(87%, rgba(43,43,43,1)), color-stop(94%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+background: -webkit-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
+background: -o-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
+background: -ms-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
+background: linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );    
+background-repeat: no-repeat;
+height: 100vh;
 }
 table, td, th {    
   border: 1px solid #ddd;
@@ -113,10 +126,10 @@ th, td {
 }
 button {
   position: relative;
-  background-color: #4CAF50;
+  background-color: rgb(88, 92, 88);
   border: none;
   font-size: 28px;
-  color: #FFFFFF;
+  color: rgb(122, 116, 116);
   padding: 20px;
   width: 200px;
   text-align: center;
@@ -130,7 +143,7 @@ button {
 
 button:after {
   content: "";
-  background: #90EE90;
+  background: rgb(81, 85, 81);
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -154,6 +167,36 @@ button:active:after {
 
 .home a {
   font-size: 24px;
-  text-decoration: none;
+  ;text-decoration: none;
   color: black;
+}
+
+@font-face {
+  font-family: 'StarWars';
+  src: url('../fonts/star-jedi.ttf')  format('truetype');
+  }
+
+::placeholder {
+  color : rgb(0, 0, 0);
+  font-weight: bold; 
+}
+
+.navbar-brand{
+  font-family: 'StarWars';
+  font-size: 25px;
+}
+
+.nav-item{
+  font-family: 'Oswald';
+  font-size: 25px;
+}
+
+.card{
+  margin-top: 65px;
+}
+
+
+.landing-text{
+  font-family:StarWars;
+  color: antiquewhite;
 }
