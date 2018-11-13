@@ -92,6 +92,12 @@ router.get('/logout', (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 
+=======
+router.get('/editor',(req,res,next) => {
+  res.render('editor')
+})
+>>>>>>> Some changes
 
 module.exports = router;
