@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var admin = require('../middleware/firebase')
 var auth = require('../middleware/auth')
-var db = admin.database()
-
+var db = admin.database() 
 
 /* GET home page. */
 router.get('/', auth.sessionChecker, function(req, res, next) {
@@ -44,7 +43,7 @@ router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
   cid = req.params.cid;
   //console.log(cid);
   var challenge = db.ref('Challenges/'+cid)
-  challenge.on("value",function(snapshot){
+  challenge.once("value",function(snapshot){
     console.log(snapshot.val());
     if(snapshot.val().done == 0){
       level={
@@ -64,6 +63,24 @@ router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
 
 
 })
+
+router.post('/answer/:cid',(req,res)=>{
+  
+  console.log("CHECK ANSWER")
+  cid=req.params.cid; 
+    
+  
+  // Part to check correct answer
+
+  //to update answers
+  // var ans = db.ref('Challenges/'+cid)
+  // ans.update({
+  //   done:1,
+  //   doneby:req.session.user.uname
+  // })
+   res.redirect('/');
+})
+
 
 router.get('/logout', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
