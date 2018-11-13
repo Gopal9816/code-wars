@@ -14,44 +14,63 @@
                 </div>
               </nav>
 
-              <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="d-flex flex-grow-1">
-                        <span class="w-100 d-lg-none d-block"></span>
-                        <a class="navbar-brand d-none d-lg-inline-block" href="#">
-                            CodeWars
-                        </a>
-                        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
-                            <img src="//placehold.it/40?text=LOGO" alt="logo">
-                        </a>
-                        <div class="w-100 text-right">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                        <ul class="navbar-nav ml-auto flex-nowrap">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item nav-active">Challenges</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item">Leaderboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav> -->
+
+              
     <div class="container-fluid">
-            <div class="card card_2">
-                <div class="card-block">
-                <h4 class="card-title display-3">Grouped</h4>
-                <p class="card-text">Use card groups to render equal height cards without gutters between the cards. Use <code>.card-deck</code> for cards that aren’t attached to each another.</p>
+        <% for(var i=0; i< 10; i++) { %>
+        <div class="row" style=" margin-left: 3%;">
+            <div class="col-md-xs-3 cold" >        
+            <label>
+                <input type="checkbox"  style="display: none;"/>
+                <div class="card">
+                    <div class="front">
+                        <h3 >Challenge Name</h3>
+                    </div>
+                    <div class="back"><a href="/challenge/<%= 4*i %> " style="color:whitesmoke;">Challenge <%= 4*i%></a></div>
+                </div>
+            </label>
             </div>
+            <div class="col-md-xs-3 cold">        
+             <label>
+                <input type="checkbox"  style="display: none;"/>
+                <div class="card">
+                    <div class="front">
+                        <h3>Challenge Name</h3>
+                    </div>
+                    <div class="back"><a href="/challenge/<%= 4*i+1 %> " style="color:whitesmoke;">Challenge <%= 4*i+1%></a></div>
+                </div>
+            </label> 
             </div>
+            <div class="col-md-xs-3 cold">        
+                    <label>
+                       <input type="checkbox"  style="display: none;"/>
+                       <div class="card">
+                           <div class="front">
+                               <h3>Challenge Name</h3>
+                           </div>
+                           <div class="back"><a href="/challenge/<%= 4*i+2 %> " style="color:whitesmoke;">Challenge <%= 4*i+2%></a></div>
+                       </div>
+                   </label> 
+            </div>
+                   <div class="col-md-xs-3 cold">        
+                        <label>
+                           <input type="checkbox"  style="display: none;"/>
+                           <div class="card">
+                               <div class="front">
+                                   <h3>Challenge Name</h3>
+                               </div>
+                               <div class="back"><a href="/challenge/<%= 4*i+3 %> " style="color:whitesmoke;">Challenge <%= 4*i+3%></a></div>
+                           </div>
+                       </label> 
+            </div>
+        </div>
+        <% } %>
     </div>
-    <h3><a href=/challenge/1>Challenge1</a></h3>
+    <style>
+        body {
+            background: linear-gradient(to right bottom, #12100E, #2B4162)
+        }
+    </style>
    
 </body>
 </html>

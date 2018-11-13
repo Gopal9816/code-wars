@@ -92,15 +92,7 @@ select,.form input {
   color: #EF3B3A;
 }
 body {
-/*   background: #122112; 
-  background: -webkit-linear-gradient(right, #121212, rgb(59, 61, 57));
-  background: -moz-linear-gradient(right, #121212, rgb(68, 70, 67));
-  background: -o-linear-gradient(right, #484b46, rgb(91, 93, 90));
-  background: linear-gradient(to left, #50524f, rgb(63, 66, 61));
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;  */ 
-  background: rgba(76,76,76,1);
+background: rgba(76,76,76,1);
 background: -moz-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
 background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(76,76,76,1)), color-stop(3%, rgba(89,89,89,1)), color-stop(6%, rgba(102,102,102,1)), color-stop(15%, rgba(71,71,71,1)), color-stop(26%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(75%, rgba(17,17,17,1)), color-stop(87%, rgba(43,43,43,1)), color-stop(94%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
 background: -webkit-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgba(102,102,102,1) 6%, rgba(71,71,71,1) 15%, rgba(44,44,44,1) 26%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 75%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 94%, rgba(19,19,19,1) 100%);
@@ -110,6 +102,7 @@ background: linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 3%, rgb
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );    
 background-repeat: no-repeat;
 height: 100vh;
+overflow-x: hidden;
 }
 table, td, th {    
   border: 1px solid #ddd;
@@ -129,7 +122,7 @@ button {
   background-color: rgb(88, 92, 88);
   border: none;
   font-size: 28px;
-  color: rgb(122, 116, 116);
+  color: rgb(32, 31, 31);
   padding: 20px;
   width: 200px;
   text-align: center;
@@ -199,4 +192,82 @@ button:active:after {
 .landing-text{
   font-family:StarWars;
   color: antiquewhite;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    /* display: block; */
+    margin-left: 25%;
+    margin-right: 10%;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    left: 20%;
+    top: 50%;  
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.cold {
+  margin-right:2%;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgb(61, 60, 60);
+        color: whitesmoke;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+    .card .front {
+      font: 30px;
+    }
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+/* }
+
+
+:checked + .card { */
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
 }
