@@ -271,3 +271,16 @@ label:hover :checked + .card {
     -webkit-transform: rotateX(160deg);
     box-shadow: 0 20px 20px rgba(255,255,255,.2);
 }
+#editor{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.editor-container{
+  position: relative;
+  height: 75vh;
+}
+

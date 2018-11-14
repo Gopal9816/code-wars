@@ -23,11 +23,78 @@ database.ref('Challenges/'+cid).on('value',function(snapshot) {
 
 
 <body class="container-fluid">
+    <div class="row">
         <h1 style="color:white"> <%= level.question %> </h1>
     </div>
+    <div class="row justify-content-end">
+        <div class="col-md-3">
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Language
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" onclick="setc()">C</a>
+                    <a class="dropdown-item" onclick="setcpp()">C++</a>
+                    <a class="dropdown-item" onclick="setpython()">Python</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row editor-container">
+        <div id="editor">function foo(){
+            console.log("Enter your code here")    
+}
+        </div>
+    </div>
+    <div class="row">
+            <form method="POST" action=/answer/<%= level.cid %> >
+                <button type="button" class="btn btn-light" onclick="submitcode()">SUBMIT</button>
+            </form>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    var currLang = "C"
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/c_cpp");
+    editor.resize()
 
-<form method="POST" action=/answer/<%= level.cid %> ><button type="submit">SUBMIT</button></form>
+    document.getElementById("lang").innerHTML = "C"
 
+    function setc(){
+        editor.session.setMode("ace/mode/c_cpp")
+        currLang = "C"
+        document.getElementById("dropdownMenuButton").innerHTML = "C"
+        document.getElementById("lang").innerHTML = "C"
+
+    }
+    function setcpp(){
+        editor.session.setMode("ace/mode/c_cpp")
+        currLang = "C++"
+        document.getElementById("dropdownMenuButton").innerHTML = "C++"
+        document.getElementById("lang").innerHTML = "C++"
+
+    }
+    function setpython(){
+        editor.session.setMode("ace/mode/python")
+        currLang = "Python"
+        document.getElementById("dropdownMenuButton").innerHTML = "Python"
+        document.getElementById("lang").innerHTML = "Python"
+
+    }
+    function submitcode(){
+        axios.post('/answer/1',{
+            code: editor.getValue(),
+            lang: currLang
+        }).then((res) => {
+            window.location('/challenge/1')
+        }).catch((err) => {
+            console.log(err);
+            
+        })
+    }
+     
+</script>
 </body>
 
 </html>

@@ -3,6 +3,14 @@ var router = express.Router();
 var admin = require('../middleware/firebase')
 var auth = require('../middleware/auth')
 var db = admin.database() 
+const axios = require('axios')
+
+var langIdArr = {
+  "C":8,
+  "C++":13,
+  "Python": 61,
+  "Python 3": 63
+}
 
 /* GET home page. */
 router.get('/', auth.sessionChecker, function(req, res, next) {
@@ -58,7 +66,7 @@ router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
       res.render("completed")
     }
   },function(err){
-    console.log("Error: "+err);
+    console.log("Error: "+err.response);
   })
 
 
@@ -67,9 +75,25 @@ router.get('/challenge/:cid',auth.sessionChecker,function(req,res){
 router.post('/answer/:cid',(req,res)=>{
   
   console.log("CHECK ANSWER")
+  console.log(req.body.code)
   cid=req.params.cid; 
-    
-  
+  var codeLang = req.body.lang
+
+  axios.post('http://cloudcompiler.esy.es/api/submissions/',{
+    sourceCode: req.body.code,
+    langId: langIdArr[codeLang]
+  },
+  {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+  .then((res) => {
+    console.log(res.data)
+  })
+  .catch((err) => {
+    console.log("Error\n"+err)
+  })
   // Part to check correct answer
 
   //to update answers
@@ -93,11 +117,18 @@ router.get('/logout', (req, res) => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 router.get('/editor',(req,res,next) => {
   res.render('editor')
 })
 >>>>>>> Some changes
+=======
+router.get('/editor',(req,res,next) => {
+  res.render('editor')
+})
+
+>>>>>>> Added code editor
 
 module.exports = router;
